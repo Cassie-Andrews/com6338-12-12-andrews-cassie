@@ -26,14 +26,22 @@ class Word {
   }
 
   // implement the guessLetter function:
+  // if correct letter & not previously guessed
+    // update displayWord to disp letter instead of _
+    // add letter to correctLetters array
+  // if incorrect letter
   guessLetter(letter) {
-    if (this.word.includes(letter) && !this.correctLetters.includes(letter)) { // if correct letter & not previously guessed
- // *** SOLVE THIS ***     
-      this.displayWord = this.word.split('') // update displayWord to disp letter instead of _
-      this.correctLetters.push(letter) // add letter to correctLetters array
-    } else { // if incorrect letter
+    console.log(this.displayWord)
+    if (this.word.includes(letter) && !this.correctLetters.includes(letter)) { 
+      this.displayWord = this.word.split('').map(char => {
+        return this.correctLetters.includes(char) || char === letter ? char : '_'
+      }).join('') 
+      this.correctLetters.push(letter) 
+    } else { 
+      if (!this.incorrectLetters.includes(letter)) {
       this.remainingGuesses -= 1 // decrement remainingGuesses by 1
       this.incorrectLetters.push(letter) // add letter to incorrectLetters array
+      }
     }
   }
 
