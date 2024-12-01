@@ -51,8 +51,9 @@ class Word {
   updateScreen() {
     // update #remaining-guesses with value in remainingGuesses
     document.getElementById('remaining-guesses').textContent = this.remainingGuesses
+    console.log(this.remainingGuesses)
     // update #incorrect-letters with value in incorrectLetters
-    document.getElementById('incorrect-guess').textContent = this.incorrectLetters.join('')
+    document.getElementById('incorrect-letters').textContent = this.incorrectLetters.join(', ')
     // update #word-to-guess with value in displayWord
     document.getElementById('word-to-guess').textContent = this.displayWord
   }
