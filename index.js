@@ -63,15 +63,27 @@ class Word {
   // default is false
   isGameOver() {
     // (true) game is over if:
-      // remainingGuesses <= 0
-      // if word === displayedWord
+    if (this.displayWord == this.word || this.remainingGuesses <= 0) {
+      return true
+    } else {
+      return false
+    }
+      // if word is displayedWord or remainingGuesses <= 0
   }
 
   // implement the getWinOrLoss function:
   // should return "win", "loss" when game is done or "null" if game is in progress
+  // user has won if word === displayedWord AND remainingGuesses > 0
+  // user has lost if displayedWord is not equal !== to word AND remainingGuesses <= 0
   getWinOrLoss() {
-    // user has won if word === displayedWord AND remainingGuesses > 0
-    // user has lost if displayedWord is not equal to word AND remainingGuesses <= 0
+    if (this.displayWord === this.word && this.remainingGuesses > 0) {
+      return 'win'
+    } 
+    if (this.displayWord !== this.word && this.remainingGuesses <= 0) {
+      return 'loss'
+    } else {
+      return null
+    }
   }
 }
 
