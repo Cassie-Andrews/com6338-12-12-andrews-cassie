@@ -48,27 +48,24 @@ class Word {
 
   // implement the updateScreen function:
   // should update HTML with data from the object
+  // update #remaining-guesses with value in remainingGuesses
+  // update #incorrect-letters with value in incorrectLetters
+  // update #word-to-guess with value in displayWord
   updateScreen() {
-    // update #remaining-guesses with value in remainingGuesses
     document.getElementById('remaining-guesses').textContent = this.remainingGuesses
     console.log(this.remainingGuesses)
-    // update #incorrect-letters with value in incorrectLetters
     document.getElementById('incorrect-letters').textContent = this.incorrectLetters.join(', ')
-    // update #word-to-guess with value in displayWord
     document.getElementById('word-to-guess').textContent = this.displayWord
   }
 
   // implement the isGameOver function:
   // should return true if game is over, false if game is not over
-  // default is false
   isGameOver() {
-    // (true) game is over if:
     if (this.displayWord == this.word || this.remainingGuesses <= 0) {
       return true
     } else {
       return false
     }
-      // if word is displayedWord or remainingGuesses <= 0
   }
 
   // implement the getWinOrLoss function:
